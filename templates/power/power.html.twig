@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<h1>Puissance de chaque race</h1>
+{% for stat in puissanceParRace %}
+    <table>
+        <tr>
+            <td>{{ stat.race }}</td>
+            <td>{{ stat.totalPuissance }}</td>
+        </tr>
+    </table>
+{% endfor %}
+
+{% endblock %}

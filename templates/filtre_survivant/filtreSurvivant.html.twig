@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des survivants{% endblock %}
+
+{% block body %}
+<main>
+    <div class="filter">
+      {# --VOTRE FORMULAIRE DE FILTRE ICI-- #}
+        {{form_start(filtreform)}} 
+            {{form_widget(filtreform)}}
+            <button>Filtrer</button>
+        {{form_end(filtreform)}}
+    </div>
+    
+    <section id="survivants" >
+        {% for survivant in survivants %}
+
+        {# SURVIVANT CARDS #}
+        <article>   
+            <div class="top-card">
+                <img src="{{asset('images/' ~ survivant.image)}}" alt="portrait du survivant {{survivant.nom}}">  
+                <div class="description">
+                <h2>{{survivant.nom }}({{survivant.race.raceName }})</h2>
+                {{survivant.description | raw }}
+                </div>   
+            </div>        
+            <div class="classlogo">
+                {% for classe in survivant.classe %}
+                    <img src="{{asset('images/class/' ~ classe.className ~'.png')}}" title="{{classe.className}}" alt="icone pour la classe {{classe.className}}">
+                {% endfor %}
+                    <span class="puissance">puissance: {{survivant.puissance }}</span>
+            </div>
+        
+        </article>
+        {# END SURVIVANT CARDS #}
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}

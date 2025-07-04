@@ -1,0 +1,27 @@
+@use 'mixins' as m;
+
+nav{
+    background-color: rgb(20, 20, 20);
+
+    ul{
+        @include m.flex;
+        padding:1rem;
+
+        li{
+            margin:0 1rem;
+            font-family: 'calibri';
+
+        }
+    }
+
+    a{
+        color:white;
+        font-weight: 900;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+
+        &:hover{
+            color:grey;
+        }
+    }
+}

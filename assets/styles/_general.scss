@@ -1,0 +1,109 @@
+@use 'vars' as v;
+
+*{
+    margin:0px;
+    padding:0px;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: #f4e7c3;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.05) 100%);
+    font-family: 'Garamond', serif; 
+}
+
+.preload *{
+    transition:none !important;
+}
+
+section{
+    margin:30px;
+   
+}
+
+h1{
+    font-size: 1.5em;
+    margin:2em 1em;
+}
+
+a{
+    color:black;
+    text-decoration: none;
+}
+
+.success{
+    color:white;
+    background-color: rgb(11, 111, 11);
+    padding:1px 3px;
+    text-align: center;
+}
+
+form{
+    width: 300px;
+
+    input,select {
+        display:block;
+        width:100%;
+        margin:10px 0;
+        padding:10px;
+        border-radius:10px;
+        border: 1px solid #eee;
+        transition: .3s border-color;
+    
+        &:hover{
+            border: 1px solid #aaa;
+        }
+    }  
+
+    button{
+        /* remove default behavior */
+        appearance:none;
+        -webkit-appearance:none;
+
+        /* usual styles */
+        padding:10px;
+        border:none;
+        background-color:v.$color2;
+        color:#fff;
+        font-weight:600;
+        border-radius:5px;
+        width:50%;
+        transition:all ease-in-out 0.3s ;
+
+        &:hover{
+            opacity:80%;
+            cursor:pointer;
+        }
+    }
+}
+
+// BUTTON STYLE
+.btn_delete{
+    background-color:v.$titleColor;
+    padding:3px 6px;
+    border-radius: 2px;
+    color:white;
+}
+
+.btn{
+    padding:6px 10px;
+    border:none;
+    background-color:v.$color2;
+    color:#fff;
+    font-weight:600;
+    border-radius:5px;
+    width:auto;
+    transition:all ease-in-out 0.3s ;
+
+    &:hover{
+        opacity:80%;
+        cursor:pointer;
+    }
+}
+
+.btn_join{
+    color:green;
+    font-weight: 900;
+}
