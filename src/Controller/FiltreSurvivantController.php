@@ -26,6 +26,7 @@ final class FiltreSurvivantController extends AbstractController
             $classe = $data['classe'] ?? null;
 
             $survivants = $repository->filterForm($minPower, $race, $classe);
+            $noResult = count($survivants)===0;
         } else {
             $survivants = $repository->findAll();
         }
@@ -34,6 +35,7 @@ final class FiltreSurvivantController extends AbstractController
 
         return $this->render('filtre_survivant/filtreSurvivant.html.twig', [
             'survivants' => $survivants,
+            'noResult' => $noResult,
             'filtreform' => $form->createView(),
         ]);
     }

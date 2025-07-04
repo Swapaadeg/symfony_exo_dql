@@ -81,7 +81,10 @@ class SurvivantRepository extends ServiceEntityRepository
         if ($classe != null) {
             $qb->join('s.classe', 'c')
                ->andWhere('c IN (:classe)')
-               ->setParameter('classe', $classe);
+               ->setParameter('classe', $classe)
+               ->groupBy('s.id')
+               ->having('COUNT(DISTINCT c.id) = :nbClasse')
+               ->setParameter('nbClasse', count($classe));
         };
         return $qb ->getQuery()->getResult();
     }
