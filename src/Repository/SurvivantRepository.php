@@ -67,7 +67,7 @@ class SurvivantRepository extends ServiceEntityRepository
     }
 
     //Filtre Formulaire
-    public function filterForm($puissance, $race): array
+    public function filterForm($puissance, $race, $classe): array
     {
         $qb = $this->createQueryBuilder('s')
             ->andWhere('s.puissance >= :puissance')
@@ -77,6 +77,11 @@ class SurvivantRepository extends ServiceEntityRepository
             $qb->andWhere('s.race = :race')
                ->setParameter('race', $race) ;   
 
+        };
+        if ($classe != null) {
+            $qb->join('s.classe', 'c')
+               ->andWhere('c IN (:classe)')
+               ->setParameter('classe', $classe);
         };
         return $qb ->getQuery()->getResult();
     }

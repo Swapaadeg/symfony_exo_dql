@@ -23,8 +23,9 @@ final class FiltreSurvivantController extends AbstractController
 
             $minPower = $data['minPower'] ?? 0;
             $race = $data['race'] ?? null;
+            $classe = $data['classe'] ?? null;
 
-            $survivants = $repository->filterForm($minPower, $race);
+            $survivants = $repository->filterForm($minPower, $race, $classe);
         } else {
             $survivants = $repository->findAll();
         }

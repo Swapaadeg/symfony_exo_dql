@@ -3,10 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Race;
+use App\Entity\Classe;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class FiltreType extends AbstractType
@@ -24,6 +24,13 @@ class FiltreType extends AbstractType
                 'required' => false,
                 'placeholder' => 'Toutes les races',
                 'label' => 'Race'
+            ])
+            ->add('classe', EntityType::class, [
+                'class' => Classe::class,
+                'choice_label' => 'class_name',
+                'multiple' => true,
+                'expanded' => true,
+                'required' => false,
             ])
         ;
     }
